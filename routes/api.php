@@ -21,14 +21,11 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::post('/login', [AuthController::class, 'auth']);
-Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
-Route::get('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');
-
 Route::post('/autenticacao', [AuthController::class, 'login']);
+Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
+Route::get('/usuario-info', [AuthController::class, 'info'])->middleware('auth:sanctum');
+
 
 Route::middleware(['auth:sanctum'])->group(function () {
     Route::get('/test', [TestController::class, 'test']);    
 });
-
-Route::get('/test', [TestController::class, 'test']); 
