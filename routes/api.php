@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthController;
+use App\Http\Controllers\Auth\UsuariosController;
 use App\Http\Controllers\TestController;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
@@ -27,5 +28,6 @@ Route::get('/usuario-info', [AuthController::class, 'info'])->middleware('auth:s
 
 
 Route::middleware(['auth:sanctum'])->group(function () {
-    Route::get('/test', [TestController::class, 'test']);    
+    // Segurança - Usuários
+    Route::get('admin/usuarios/grid', [UsuariosController::class, 'grid']);    
 });
