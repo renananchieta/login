@@ -15,9 +15,7 @@ class UsuariosController extends Controller
         try {
             $usuarios = UsuarioDB::grid($data);
 
-            return response([
-                'usuarios' => $usuarios
-            ], 200);
+            return response( $usuarios, 200);
         } catch(Exception $e) {
             return response([
                 'erro' => 'Falha ao realizar esta operação.'

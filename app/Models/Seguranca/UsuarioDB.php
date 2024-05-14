@@ -8,7 +8,6 @@ class UsuarioDB
 {
     public static function grid(object $data)
     {
-        // $query = Usuario::select('id', 'nome', 'email')->paginate();
         $query = Usuario::query();
 
         if(isset($data->nome)) {
