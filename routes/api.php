@@ -33,7 +33,7 @@ Route::middleware(['auth:sanctum'])->group(function () {
     Route::post('admin/usuario/store', [UsuariosController::class, 'store']);     
 });
 
-// Route::get('criar-hash', function () {
-//     $hashedPassword = Hash::make(12345678);
-//     return response($hashedPassword);
-// });
+Route::get('criar-hash', function () {
+    $hashedPassword = Hash::make(12345678);
+    return response($hashedPassword);
+});
