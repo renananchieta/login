@@ -29,5 +29,6 @@ Route::get('/usuario-info', [AuthController::class, 'info'])->middleware('auth:s
 
 Route::middleware(['auth:sanctum'])->group(function () {
     // Segurança - Usuários
-    Route::get('admin/usuarios/grid', [UsuariosController::class, 'grid']);    
+    Route::get('admin/usuarios/grid', [UsuariosController::class, 'grid']);
+    Route::post('admin/usuario/store', [UsuariosController::class, 'store']);     
 });
