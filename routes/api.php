@@ -5,6 +5,7 @@ use App\Http\Controllers\Auth\UsuariosController;
 use App\Http\Controllers\TestController;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,9 +27,13 @@ Route::post('/autenticacao', [AuthController::class, 'login']);
 Route::get('/logout', [AuthController::class, 'logout'])->middleware('auth:sanctum');
 Route::get('/usuario-info', [AuthController::class, 'info'])->middleware('auth:sanctum');
 
-
 Route::middleware(['auth:sanctum'])->group(function () {
     // Segurança - Usuários
     Route::get('admin/usuarios/grid', [UsuariosController::class, 'grid']);
     Route::post('admin/usuario/store', [UsuariosController::class, 'store']);     
 });
+
+// Route::get('criar-hash', function () {
+//     $hashedPassword = Hash::make(12345678);
+//     return response($hashedPassword);
+// });
