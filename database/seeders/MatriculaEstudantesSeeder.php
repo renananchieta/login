@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -23,6 +24,7 @@ class MatriculaEstudantesSeeder extends Seeder
                     "escola_id" => $i,
                     "estudante_id" => $estudanteId,
                     "matricula" => $faker->unique()->numberBetween(100000000, 999999999),
+                    "created_at" => Carbon::now(),
                 ];
                 $estudanteId++;
             }

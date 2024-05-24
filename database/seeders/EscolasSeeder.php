@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
@@ -12,6 +13,7 @@ class EscolasSeeder extends Seeder
      */
     public function run(): void
     {
+        $faker = \Faker\Factory::create('pt_BR');
         $itens = [];
 
         for ($i = 1; $i <= 10; $i++) {
@@ -19,7 +21,8 @@ class EscolasSeeder extends Seeder
                 "id" => $i,
                 "codigo_escola" => 1000 + $i,
                 "codigo_escola_ibge" => rand(1000000, 9999999),
-                "nome_escola" => "Escola " . $i,
+                "nome_escola" => "Escola " . $faker->name() .$i,
+                "created_at" => Carbon::now(),
             ];
         }
 

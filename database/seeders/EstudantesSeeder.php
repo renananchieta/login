@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,7 @@ class EstudantesSeeder extends Seeder
                 "dt_nascimento" => $faker->date(),
                 "nome_mae" => $faker->name('female'),
                 "cpf_mae" => $faker->unique()->cpf(false),
+                "created_at" => Carbon::now(),
             ];
         } 
         DB::table('estudantes')->insert($itens);

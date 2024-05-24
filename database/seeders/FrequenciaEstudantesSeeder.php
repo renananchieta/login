@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use Carbon\Carbon;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
@@ -24,6 +25,7 @@ class FrequenciaEstudantesSeeder extends Seeder
                     "mes_referencia" => $mes,
                     "ch_ofertada" => 160,
                     "ch_presente" => rand(100, 160), // Random value between 100 and 160
+                    "created_at" => Carbon::now(),
                 ];
             }
         }

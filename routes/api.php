@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\UsuariosController;
+use App\Http\Controllers\Estudantes\EstudantesController;
 use App\Http\Controllers\TestController;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
@@ -30,7 +31,10 @@ Route::get('/usuario-info', [AuthController::class, 'info'])->middleware('auth:s
 Route::middleware(['auth:sanctum'])->group(function () {
     // Segurança - Usuários
     Route::get('admin/usuarios/grid', [UsuariosController::class, 'grid']);
-    Route::post('admin/usuario/store', [UsuariosController::class, 'store']);     
+    Route::post('admin/usuario/store', [UsuariosController::class, 'store']); 
+    
+    //Estudantes
+    Route::apiResource('estudantes', EstudantesController::class);
 });
 
 Route::get('criar-hash', function () {
