@@ -1,31 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Estudantes;
+namespace App\Http\Controllers\Escolas;
 
 use App\Http\Controllers\Controller;
-use App\Models\Estudantes\Estudantes;
-use App\Models\Facade\EstudantesDB;
-use Exception;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
-class EstudantesController extends Controller
+class EscolasController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index(Request $request)
+    public function index()
     {
-        try {
-            $params = (Object)$request->all();
-            DB::beginTransaction();
-            $estudantes = EstudantesDB::gridEstudantes($params);
-            DB::commit();
-            return response($estudantes);
-        } catch (Exception $e) {
-            DB::rollBack();
-            return response($e->getMessage(), 500);
-        }
+        //
     }
 
     /**

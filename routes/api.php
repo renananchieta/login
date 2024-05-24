@@ -2,7 +2,9 @@
 
 use App\Http\Controllers\Auth\AuthController;
 use App\Http\Controllers\Auth\UsuariosController;
+use App\Http\Controllers\Escolas\EscolasController;
 use App\Http\Controllers\Estudantes\EstudantesController;
+use App\Http\Controllers\Frequencia\FrequenciaController;
 use App\Http\Controllers\TestController;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Http\Request;
@@ -35,6 +37,9 @@ Route::middleware(['auth:sanctum'])->group(function () {
     
     //Estudantes
     Route::apiResource('estudantes', EstudantesController::class);
+    Route::apiResource('escolas', EscolasController::class);
+    Route::apiResource('frequencia', FrequenciaController::class);
+    
 });
 
 Route::get('criar-hash', function () {

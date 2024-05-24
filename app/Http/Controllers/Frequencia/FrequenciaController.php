@@ -1,15 +1,14 @@
 <?php
 
-namespace App\Http\Controllers\Estudantes;
+namespace App\Http\Controllers\Frequencia;
 
 use App\Http\Controllers\Controller;
-use App\Models\Estudantes\Estudantes;
-use App\Models\Facade\EstudantesDB;
+use App\Models\Frequencia\FrequenciaDB;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
-class EstudantesController extends Controller
+class FrequenciaController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,9 +18,9 @@ class EstudantesController extends Controller
         try {
             $params = (Object)$request->all();
             DB::beginTransaction();
-            $estudantes = EstudantesDB::gridEstudantes($params);
+            $frequencium = FrequenciaDB::gridFrequenciaEstudante($params);
             DB::commit();
-            return response($estudantes);
+            return response($frequencium);
         } catch (Exception $e) {
             DB::rollBack();
             return response($e->getMessage(), 500);
